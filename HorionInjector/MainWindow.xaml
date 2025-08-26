@@ -10,7 +10,7 @@
         WindowStyle="None" AllowsTransparency="True" Background="#121212">
 
     <Window.Clip>
-        <RectangleGeometry Rect="0,0,500,300" RadiusX="15" RadiusY="15"/>
+        <RectangleGeometry Rect="0,0,400,300" RadiusX="15" RadiusY="15"/>
     </Window.Clip>
 
     <Window.Triggers>
