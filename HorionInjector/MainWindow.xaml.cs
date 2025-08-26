@@ -178,5 +178,10 @@ namespace HorionInjector
 
         private void CloseWindow(object sender, MouseButtonEventArgs e) => Application.Current.Shutdown();
         private void DragWindow(object sender, MouseButtonEventArgs e) => DragMove();
+
+        private void GitHubLogo_Click(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/AzOxStOz");
+        }
     }
 }
