@@ -63,7 +63,7 @@ namespace HorionInjector
                 goto done;
             }
 
-            SetStatus("setting file perms");
+            SetStatus("Setting file perms");
             try
             {
                 var fileInfo = new FileInfo(path);
@@ -77,11 +77,11 @@ namespace HorionInjector
                 goto done;
             }
 
-            SetStatus("finding process");
+            SetStatus("Finding process");
             var processes = Process.GetProcessesByName("Minecraft.Windows");
             if (processes.Length == 0)
             {
-                SetStatus("launching minecraft");
+                SetStatus("Launching minecraft");
                 if (Interaction.Shell("explorer.exe shell:appsFolder\\Microsoft.MinecraftUWP_8wekyb3d8bbwe!App", Wait: false) == 0)
                 {
                     MessageBox.Show("Failed to launch Minecraft (Is it installed?)");
@@ -102,7 +102,7 @@ namespace HorionInjector
                         processes = Process.GetProcessesByName("Minecraft.Windows");
                         Thread.Sleep(10);
                     }
-                    Thread.Sleep(3000);
+                    Thread.Sleep(7000);
                 }).Wait();
             }
             var process = processes.First(p => p.Responding);
@@ -116,7 +116,7 @@ namespace HorionInjector
                 }
             }
 
-            SetStatus("injecting into " + process.Id);
+            SetStatus("Injecting into " + process.Id);
             IntPtr handle = OpenProcess((IntPtr)2035711, false, (uint)process.Id);
             if (handle == IntPtr.Zero || !process.Responding)
             {

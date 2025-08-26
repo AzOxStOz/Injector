@@ -106,7 +106,7 @@ namespace HorionInjector
         {
             if (!_done) return;
 
-            SetStatus("checking connection");
+            SetStatus("Checking connection");
             if (!CheckConnection())
             {
                 if (MessageBox.Show("Can't reach download server. Try anyways?", null, MessageBoxButton.YesNo) == MessageBoxResult.No)
@@ -116,7 +116,7 @@ namespace HorionInjector
                 }
             }
 
-            SetStatus("downloading DLL");
+            SetStatus("Downloading DLL");
             var wc = new WebClient();
             var file = Path.Combine(Path.GetTempPath(), "Horion.dll");
             wc.DownloadFileCompleted += (_, __) => Inject(file);
