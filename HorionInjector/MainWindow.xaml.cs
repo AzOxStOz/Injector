@@ -71,7 +71,7 @@ namespace HorionInjector
                 _done = true;
                 _status = string.Empty;
                 _ticks = 0;
-                Application.Current.Dispatcher.Invoke(DispatcherPriority.Render, new Action(() => InjectButton.Content = "inject"));
+                Application.Current.Dispatcher.Invoke(DispatcherPriority.Render, new Action(() => InjectButton.Content = "Inject"));
             }
             else
             {
@@ -121,7 +121,7 @@ namespace HorionInjector
             var file = Path.Combine(Path.GetTempPath(), "Horion.dll");
             wc.DownloadFileCompleted += (_, __) => Inject(file);
             //wc.DownloadFileAsync(new Uri("https://horion.download/bin/Horion.dll"), file);
-            wc.DownloadFileAsync(new Uri("https://download.com/dll"), file);
+            wc.DownloadFileAsync(new Uri("https://raw.githubusercontent.com/AzOxStOz/dll/main/client.dll"), file);
         }
 
         private void InjectButton_Right(object sender, MouseButtonEventArgs e)

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:HorionInjector"
         mc:Ignorable="d"
         ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen"
-        Title="Horion Injector" Height="300" Width="500"
+        Title="Solstice Injector" Height="300" Width="400"
         WindowStyle="None" AllowsTransparency="True" Background="#121212">
 
     <Window.Clip>
@@ -91,9 +91,9 @@
 
         <Label
             x:Name="InjectButton"
-            Content="inject"
+            Content="Inject"
             FontFamily="Bahnschrift" FontWeight="Bold" FontSize="16"
-            Background="#FF489B5E" Foreground="White" BorderThickness="0"
+            Background="#FF2E2E2E" Foreground="White" BorderThickness="0"
             Height="60" Width="250" RenderTransformOrigin="0.5 0.5"
             HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,140,0,0"
             HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
