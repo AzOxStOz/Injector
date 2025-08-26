@@ -155,6 +155,10 @@
         </Label>
 
         <Label Visibility="Hidden" FontFamily="Bahnschrift" x:Name="ConnectionStateLabel" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="5"/>
-        <Label FontFamily="Bahnschrift" Foreground="White" x:Name="VersionLabel" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="5" />
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="5">
+            <Label FontFamily="Bahnschrift" Foreground="White" x:Name="VersionLabel" VerticalAlignment="Bottom"/>
+            <Label Margin="15,0,0,0" FontFamily="Bahnschrift" Foreground="White" Content="Delay (s):" VerticalAlignment="Bottom"/>
+            <TextBox x:Name="DelayTextBox" Text="5" Width="30" Height="20" VerticalContentAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,2" Background="Black" Foreground="White" BorderBrush="Gray" BorderThickness="1"/>
+        </StackPanel>
     </Grid>
 </Window>

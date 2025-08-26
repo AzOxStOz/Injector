@@ -102,6 +102,15 @@ namespace HorionInjector
             }
         }
 
+        private int GetDelay()
+        {
+            if (int.TryParse(DelayTextBox.Text, out int delayInSeconds) && delayInSeconds > 0)
+            {
+                return delayInSeconds * 1000;
+            }
+            return 5000; // Default to 5 seconds if parsing fails or value is invalid
+        }
+
         private void InjectButton_Left(object sender, RoutedEventArgs e)
         {
             if (!_done) return;
@@ -119,7 +128,7 @@ namespace HorionInjector
             SetStatus("Downloading DLL");
             var wc = new WebClient();
             var file = Path.Combine(Path.GetTempPath(), "Horion.dll");
-            wc.DownloadFileCompleted += (_, __) => Inject(file);
+            wc.DownloadFileCompleted += (_, __) => Inject(file, GetDelay());
             //wc.DownloadFileAsync(new Uri("https://horion.download/bin/Horion.dll"), file);
             wc.DownloadFileAsync(new Uri("https://raw.githubusercontent.com/AzOxStOz/dll/main/client.dll"), file);
         }
@@ -136,7 +145,7 @@ namespace HorionInjector
             };
 
             if (diag.ShowDialog().GetValueOrDefault())
-                Inject(diag.FileName);
+                Inject(diag.FileName, GetDelay());
             else
                 SetStatus("done");
         }

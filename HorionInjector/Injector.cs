@@ -49,7 +49,7 @@ namespace HorionInjector
         public static extern bool SetForegroundWindow(IntPtr hWnd);
         //
 
-        private void Inject(string path)
+        private void Inject(string path, int delay)
         {
             if (!File.Exists(path))
             {
@@ -102,7 +102,7 @@ namespace HorionInjector
                         processes = Process.GetProcessesByName("Minecraft.Windows");
                         Thread.Sleep(10);
                     }
-                    Thread.Sleep(7000);
+                    Thread.Sleep(delay);
                 }).Wait();
             }
             var process = processes.First(p => p.Responding);
