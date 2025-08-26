@@ -12,14 +12,20 @@ namespace HorionInjector
     {
         private void CheckForUpdate()
         {
-
-            var latest = new WebClient().DownloadString("https://horion.download/latest");
-            if (Version.Parse(latest) > GetVersion())
+            try
             {
-                if (MessageBox.Show("New update available! Do you want to update now?", null, MessageBoxButton.YesNo) == MessageBoxResult.Yes)
-                    Update();
+                //var latest = new WebClient().DownloadString("https://horion.download/latest");
+                var latest = new WebClient().DownloadString("https://download.com/latest");
+                if (Version.Parse(latest) > GetVersion())
+                {
+                    if (MessageBox.Show("New update available! Do you want to update now?", null, MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                        Update();
+                }
             }
-
+            catch (Exception)
+            {
+                // Ignore, can't check for updates
+            }
         }
 
         private void Update()
@@ -37,8 +43,9 @@ namespace HorionInjector
             }
 
             File.Move(path, Path.ChangeExtension(path, "old"));
-            new WebClient().DownloadFile("https://horion.download/bin/HorionInjector.exe", path);
-            
+            //new WebClient().DownloadFile("https://horion.download/bin/HorionInjector.exe", path);
+            new WebClient().DownloadFile("https://download.com/injector.exe", path);
+
             MessageBox.Show("Updater is done! The injector will now restart.");
             Process.Start(path);
             Application.Current.Shutdown();
