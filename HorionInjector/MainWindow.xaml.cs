@@ -137,7 +137,7 @@ namespace HorionInjector
         {
             if (!_done) return;
             
-            SetStatus("selecting DLL");
+            SetStatus("Selecting DLL");
             var diag = new OpenFileDialog
             {
                 Filter = "dll files (*.dll)|*.dll",
